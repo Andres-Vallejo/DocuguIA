@@ -1,5 +1,8 @@
 # DocuguIA
 
+[![Tests](https://github.com/Andres-Vallejo/DocuguIA/actions/workflows/ci.yml/badge.svg)](https://github.com/Andres-Vallejo/DocuguIA/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **Ask questions about your documents and inspect the sources behind each answer.**
 
 [Español](docs/GUIA_ES.md) · [Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Validation](docs/VALIDACION.md)
@@ -17,6 +20,13 @@ A local document assistant built with **Python, FastAPI, SQLite FTS5/BM25 and Ge
 - Local Word-to-PDF references with LibreOffice; ambiguous pages stay unverified.
 - Local key storage, request budget, response cache and no automatic paid-model fallback.
 - Fictional examples across operations, inventory and infrastructure; offline tests and CI.
+
+<details>
+<summary>View the document library</summary>
+
+![Upload supported documents and organize categories and versions](docs/library.jpg)
+
+</details>
 
 ## Supported formats
 
@@ -99,7 +109,7 @@ python -m pytest -q
 python -m evaluation.run
 ```
 
-Use the activated environment or its Python executable. Tests use synthetic documents and mocked providers, never a real key. CI runs on Windows and Ubuntu. Evaluation reports **10 synthetic retrieval checks** and **3 pending live-generation cases** separately. These development checks are not an independent benchmark or a measure of general answer accuracy.
+Use the activated environment or its Python executable. **61 automated tests pass** locally and in [Windows/Ubuntu CI](https://github.com/Andres-Vallejo/DocuguIA/actions/runs/45724743839), using synthetic documents and mocked providers, never a real key. Evaluation reports **10 synthetic retrieval checks** and **3 pending live-generation cases** separately. These development checks are not an independent benchmark or a measure of general answer accuracy.
 
 Quotation validation confirms source identity and an exact substring. **It does not prove that the quote supports the generated claim.** Review quantities, scope and conflicts in the original. See [evaluation plan](docs/EVALUACION.md) and [observed validation](docs/VALIDACION.md).
 

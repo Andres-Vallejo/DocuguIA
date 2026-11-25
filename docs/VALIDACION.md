@@ -10,7 +10,9 @@ Entorno local: Windows, Python 3.12.10, 25 de noviembre de 2026.
 - Preguntas sobre documentos de trabajo con Gemini real: requieren autorización explícita antes de enviar sus fragmentos; esta verificación no se hizo en la corrección de filtros.
 - Corrección de filtros: se reprodujo localmente el caso de archivos cargados como borradores y excluidos por el filtro de actuales. El filtro inicial ahora incluye actuales y borradores, sin incluir históricos automáticamente ni cambiar permisos de nube.
 - Referencias locales: dos documentos Word reindexados conservando sus permisos y versiones. Se generaron PDF locales con LibreOffice y se verificó visualmente una página contra su sección y texto. Los fragmentos sin coincidencia inequívoca mantienen la ubicación original sin inventar una página. No se usaron estos documentos como ejemplos públicos.
-- Docker, CI remoto, despliegue público y evaluación de respuestas de Gemini con documentos de trabajo: no ejecutados.
+- CI remoto: [GitHub Actions, ejecución 45724743839](https://github.com/Andres-Vallejo/DocuguIA/actions/runs/45724743839), aprobado en Windows y Ubuntu: instalación, 61 pruebas y 10 comprobaciones de recuperación en ambos entornos.
+- Repositorio público independiente: publicado en [Andres-Vallejo/DocuguIA](https://github.com/Andres-Vallejo/DocuguIA), sin claves, documentos de trabajo ni base de datos. La aplicación sigue siendo local.
+- Docker, despliegue de la aplicación en un servidor público y evaluación de respuestas de Gemini con documentos de trabajo: no ejecutados.
 
 Starlette emite una advertencia de migración futura del cliente de pruebas de `httpx` a `httpx2`; las pruebas con las dependencias fijadas pasan. El servicio de Gemini usa `httpx` directamente.
 
