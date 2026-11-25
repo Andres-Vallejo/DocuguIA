@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-11-25T23:52:05.272691+00:00",
+  "kind": "synthetic_retrieval_smoke",
+  "api_calls": 0,
+  "passed": 10,
+  "total": 10,
+  "pending_live": 3,
+  "cases": [
+    {
+      "id": "acceptance",
+      "passed": true,
+      "retrieved_files": [
+        "redes_actual.md",
+        "redes_actual.md",
+        "redes_actual.md",
+        "redes_actual.md",
+        "redes_actual.md"
+      ]
+    },
+    {
+      "id": "historical",
+      "passed": true,
+      "retrieved_files": [
+        "redes_historico.md",
+        "redes_historico.md",
+        "redes_historico.md"
+      ]
+    },
+    {
+      "id": "handover",
+      "passed": true,
+      "retrieved_files": [
+        "datacenter.md",
+        "datacenter.md",
+        "recepcion.md",
+        "recepcion.md",
+        "datacenter.md"
+      ]
+    },
+    {
+      "id": "alarms",
+      "passed": true,
+      "retrieved_files": [
+        "datacenter.md",
+        "datacenter.md",
+        "datacenter.md",
+        "datacenter.md",
+        "datacenter.md"
+      ]
+    },
+    {
+      "id": "versions",
+      "passed": true,
+      "retrieved_files": [
+        "recepcion.md",
+        "guia_atlas.md",
+        "recepcion.md",
+        "datacenter.md",
+        "redes_actual.md",
+        "guia_atlas.md"
+      ]
+    },
+    {
+      "id": "missing-evidence",
+      "passed": true,
+      "retrieved_files": [
+        "recepcion.md",
+        "recepcion.md",
+        "redes_actual.md",
+        "redes_actual.md",
+        "recepcion.md",
+        "recepcion.md"
+      ]
+    },
+    {
+      "id": "unknown-token",
+      "passed": true,
+      "retrieved_files": []
+    },
+    {
+      "id": "outside-block",
+      "passed": true,
+      "retrieved_files": []
+    },
+    {
+      "id": "unknown-budget",
+      "passed": null,
+      "status": "pending_live_evaluation"
+    },
+    {
+      "id": "unknown-ups",
+      "passed": null,
+      "status": "pending_live_evaluation"
+    },
+    {
+      "id": "unknown-vendor",
+      "passed": null,
+      "status": "pending_live_evaluation"
+    },
+    {
+      "id": "operations-retention",
+      "passed": true,
+      "retrieved_files": [
+        "guia_atlas.md",
+        "guia_atlas.md",
+        "guia_atlas.md",
+        "guia_atlas.md"
+      ]
+    },
+    {
+      "id": "inventory-table",
+      "passed": true,
+      "retrieved_files": [
+        "inventario.csv",
+        "inventario.csv",
+        "inventario.csv"
+      ]
+    }
+  ],
+  "limitations": "Development examples, not a held-out benchmark; does not measure Gemini answer correctness or semantic citation support."
+}

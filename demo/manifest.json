@@ -1,0 +1,62 @@
+[
+  {
+    "file": "redes_actual.md",
+    "title": "DEMO · Anexo técnico de red inalámbrica",
+    "family": "demo-redes",
+    "version": "2.0",
+    "document_date": "2026-11-01",
+    "block": "1",
+    "status": "current",
+    "allow_cloud": true
+  },
+  {
+    "file": "redes_historico.md",
+    "title": "DEMO · Anexo técnico de red inalámbrica, histórico",
+    "family": "demo-redes",
+    "version": "1.0",
+    "document_date": "2026-09-01",
+    "block": "1",
+    "status": "historical",
+    "allow_cloud": true
+  },
+  {
+    "file": "datacenter.md",
+    "title": "DEMO · Adecuaciones de sala técnica",
+    "family": "demo-sala",
+    "version": "1.0",
+    "document_date": "2026-11-02",
+    "block": "4",
+    "status": "current",
+    "allow_cloud": true
+  },
+  {
+    "file": "recepcion.md",
+    "title": "DEMO · Guía de recepción y trazabilidad",
+    "family": "demo-recepcion",
+    "version": "1.0",
+    "document_date": "2026-11-03",
+    "block": "general",
+    "status": "current",
+    "allow_cloud": true
+  },
+  {
+    "file": "guia_atlas.md",
+    "title": "DEMO · Atlas, guía de operaciones",
+    "family": "demo-atlas",
+    "version": "1.0",
+    "document_date": "2026-11-01",
+    "block": "Operaciones",
+    "status": "current",
+    "allow_cloud": true
+  },
+  {
+    "file": "inventario.csv",
+    "title": "DEMO · Inventario ficticio",
+    "family": "demo-inventario",
+    "version": "1.0",
+    "document_date": "2026-11-01",
+    "block": "Inventario",
+    "status": "current",
+    "allow_cloud": true
+  }
+]

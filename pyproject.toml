@@ -1,0 +1,30 @@
+[project]
+name = "docuguia"
+version = "0.2.0"
+description = "Local document assistant with source citations, table-aware retrieval and Gemini"
+readme = "README.md"
+license = "MIT"
+authors = [{name = "Juan Andrés Vallejo Rozo"}]
+keywords = ["rag", "gemini", "document-question-answering", "fastapi", "sqlite"]
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.165.0", "uvicorn==0.54.0", "httpx==0.28.1", "pypdf==7.1.1", "pdfplumber==0.11.11", "python-multipart==0.0.34", "python-dotenv==1.2.4"]
+
+[project.urls]
+Repository = "https://github.com/Andres-Vallejo/docuguia"
+Issues = "https://github.com/Andres-Vallejo/docuguia/issues"
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0"]
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.setuptools.package-data]
+app = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

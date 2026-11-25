@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-25",
+  "kind": "single_synthetic_live_smoke",
+  "model": "gemini-3.5-flash-lite",
+  "source": "Ejemplo completamente ficticio de Campus Aurora, zonas Roble, Pino y Cedro, con 60 dispositivos globales y sin desglose por zona.",
+  "question": "¿Cuántos dispositivos se solicitan específicamente para la zona Roble?",
+  "observed_status": "partial",
+  "literal_citations_valid": true,
+  "total_tokens": 570,
+  "real_documents_sent": false,
+  "limitations": "Una sola comprobación sintética de conexión y respuesta parcial; no mide la exactitud general ni verifica respuestas sobre documentos del usuario."
+}

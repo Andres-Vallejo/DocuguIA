@@ -1,0 +1,101 @@
+[
+  {
+    "id": "acceptance",
+    "question": "¿Qué pruebas de aceptación se exigen para la red inalámbrica?",
+    "block": "1",
+    "status": "current",
+    "expected_file": "redes_actual.md",
+    "expected_text": "validación de autenticación"
+  },
+  {
+    "id": "historical",
+    "question": "¿Qué pruebas de aceptación se exigen para la red inalámbrica?",
+    "block": "1",
+    "status": "historical",
+    "expected_file": "redes_historico.md",
+    "expected_text": "únicamente medición de cobertura"
+  },
+  {
+    "id": "handover",
+    "question": "¿Qué entregables debe presentar el contratista del datacenter?",
+    "block": "4",
+    "status": "current",
+    "expected_file": "datacenter.md",
+    "expected_text": "memoria de diseño"
+  },
+  {
+    "id": "alarms",
+    "question": "¿Qué pruebas de puesta en servicio incluyen las alarmas de la sala técnica?",
+    "block": "4",
+    "status": "current",
+    "expected_file": "datacenter.md",
+    "expected_text": "verificación de alarmas"
+  },
+  {
+    "id": "versions",
+    "question": "¿La fecha más reciente prueba que el archivo es vigente?",
+    "block": "all",
+    "status": "current",
+    "expected_file": "recepcion.md",
+    "expected_text": "no prueba por sí sola"
+  },
+  {
+    "id": "missing-evidence",
+    "question": "¿Cómo registrar una evidencia faltante para la recepción?",
+    "block": "all",
+    "status": "current",
+    "expected_file": "recepcion.md",
+    "expected_text": "registrarse como pendiente"
+  },
+  {
+    "id": "unknown-token",
+    "question": "¿Qué establece el parámetro ZXQJ-998877?",
+    "block": "all",
+    "status": "current",
+    "expect_empty": true
+  },
+  {
+    "id": "outside-block",
+    "question": "¿Qué inventario de equipos instalados de red existe?",
+    "block": "2",
+    "status": "current",
+    "forbidden_file": "redes_actual.md"
+  },
+  {
+    "id": "unknown-budget",
+    "question": "¿Cuál es el presupuesto aprobado del proyecto?",
+    "block": "all",
+    "status": "current",
+    "live_expected_status": "insufficient"
+  },
+  {
+    "id": "unknown-ups",
+    "question": "¿Cuál es la potencia en kVA de la UPS?",
+    "block": "4",
+    "status": "current",
+    "live_expected_status": "insufficient"
+  },
+  {
+    "id": "unknown-vendor",
+    "question": "¿Cuál es la marca de puntos de acceso seleccionada?",
+    "block": "1",
+    "status": "current",
+    "live_expected_status": "insufficient"
+  },
+  {
+    "id": "operations-retention",
+    "question": "¿Cuánto tiempo se conservan las copias de seguridad de Atlas?",
+    "block": "Operaciones",
+    "status": "current",
+    "expected_file": "guia_atlas.md",
+    "expected_text": "30 días"
+  },
+  {
+    "id": "inventory-table",
+    "question": "Microscopio Laboratorio Cantidad",
+    "block": "Inventario",
+    "status": "current",
+    "expected_file": "inventario.csv",
+    "expected_text": "Cantidad: 7"
+  }
+]

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DocuguIA · Documentos con respuestas</title>
+  <link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-mark">d.</span><span>Docugu<span class="brand-ai">IA</span></span></a>
+    <p class="workspace-label">TU ESPACIO DOCUMENTAL</p>
+    <nav aria-label="Navegación principal">
+      <button class="nav-item active" data-page="consult"><span>↗</span> Consultar</button>
+      <button class="nav-item" data-page="library"><span>▤</span> Documentos <small id="nav-count">0</small></button>
+      <button class="nav-item" data-page="settings"><span>⚙</span> Conectar Gemini <i id="key-dot"></i></button>
+    </nav>
+    <div class="sidebar-bottom"><span class="small-dot"></span> Archivos en tu PC<p>Selecciona qué documentos pueden enviarse a Gemini.</p><span class="version">VERSIÓN 0.2 · PROTOTIPO LOCAL</span></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>Mi biblioteca <span class="muted">/</span> <strong id="page-title">Consultar</strong></span><span class="status-pill" id="connection">Comprobando conexión…</span></header>
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+    <section id="consult" class="page">
+      <div class="eyebrow">MENOS BÚSQUEDA. MÁS CONTEXTO.</div>
+      <h1>Tu documentación,<br><span>con respuestas y fuentes.</span></h1>
+      <p class="lead">Consulta manuales, informes, apuntes y datos tabulares. Revisa la evidencia que respalda cada respuesta.</p>
+      <div class="stats-row"><div><strong id="doc-count">0</strong><span>documentos en tu biblioteca</span></div><div><strong id="call-count">0 / 15</strong><span>llamadas a Gemini hoy · límite local</span></div><div><strong>Con fuentes</strong><span>archivo, versión, sección y ubicación</span></div></div>
+      <div id="empty-banner" class="welcome-card"><div><span class="tag">EMPIEZA AQUÍ</span><h3>Prueba una biblioteca de ejemplo</h3><p>Explora documentos ficticios o carga tus propios archivos y organízalos por tema.</p></div><button id="load-demo" class="button primary">Cargar ejemplo <span>↗</span></button></div>
+      <div class="query-card">
+        <div class="card-heading"><span class="step-number">01</span><h2>¿Qué necesitas consultar?</h2></div>
+        <form id="question-form">
+          <label class="sr-only" for="question">Tu pregunta</label>
+          <textarea id="question" minlength="3" maxlength="1500" required placeholder="Pregunta por un requisito, una cantidad o un procedimiento de tus documentos…"></textarea>
+          <div class="filter-row">
+            <label>Categoría<select id="block"><option value="all">Todas las categorías</option><option value="general">General · compartida</option></select></label>
+            <label>Documentos<select id="filter-status"><option value="active">Actuales y borradores</option><option value="current">Solo marcados como actuales</option><option value="historical">Históricos</option><option value="draft">Solo borradores</option><option value="all">Todas las versiones</option></select></label>
+            <label>Modo<select id="mode"><option value="local">Búsqueda local · sin API</option><option value="gemini">Respuesta con Gemini</option></select></label>
+            <button class="button primary" id="ask-button" type="submit">Consultar <span>↗</span></button>
+          </div>
+        </form>
+        <p class="hint">La búsqueda local no envía datos. Gemini recibe tu pregunta y hasta seis fragmentos de documentos autorizados.</p>
+      </div>
+      <div class="suggestions"><span>PRUEBA UNA PREGUNTA DEL EJEMPLO</span><button data-question="¿Cuántos microscopios tiene el laboratorio?">Consultar un inventario ↗</button><button data-question="¿Cuánto tiempo se conservan las copias de seguridad de Atlas?">Consultar un procedimiento ↗</button><button data-question="¿Cuál es el presupuesto aprobado del proyecto?">Una pregunta sin respuesta ↗</button></div>
+      <div id="results" class="results hidden" aria-live="polite"><div class="result-header"><div class="card-heading"><span class="step-number">02</span><h2 id="result-title">Resultados</h2></div><span id="result-meta" class="muted"></span></div><div id="claims"></div><p id="result-message"></p><div class="source-header"><h3>Fuentes y ubicaciones</h3><span id="sources-count" class="muted"></span></div><div id="sources"></div></div>
+      <p class="footer-note">La etiqueta «actual» la decides tú. Las citas literales se comprueban, pero su interpretación necesita revisión.</p>
+    </section>
+    <section id="library" class="page hidden">
+      <div class="eyebrow">UNA BIBLIOTECA CON CONTEXTO</div><h1>Documentos y versiones.</h1><p class="lead">Organiza tus archivos por categoría, familia, versión y estado. Las categorías pueden ser de cualquier tema.</p>
+      <div class="query-card"><h2>Añadir un documento</h2><form id="upload-form">
+        <label class="file-zone">Selecciona PDF, DOCX, TXT, Markdown, CSV, TSV o HTML<input id="file" name="file" type="file" accept=".pdf,.docx,.txt,.md,.csv,.tsv,.html,.htm" required><small>Máximo 10 MB · PDF con texto, hasta 200 páginas · Organización automática, sin dividir el archivo manualmente</small></label>
+        <div class="form-grid"><label>Título<input name="title" id="upload-title" maxlength="180" required placeholder="Manual, informe o apuntes"></label><label>Familia documental<input name="family" maxlength="120" placeholder="Manual del producto · equipo A"></label><label>Versión<input name="version" value="1" maxlength="60" required></label><label>Fecha del documento<input name="document_date" type="date"></label><label>Categoría<input name="block" id="upload-category" value="general" maxlength="80" list="category-options" required placeholder="Por ejemplo: Investigación"><datalist id="category-options"><option value="general"></option></datalist></label><label>Estado<select name="status"><option value="draft">Borrador</option><option value="current">Actual</option><option value="historical">Histórico</option></select></label></div>
+        <p class="hint">Crea una categoría escribiendo su nombre. «general» se consulta junto con cualquier categoría. Los formatos no incluidos y los PDF escaneados requieren convertir o extraer su texto primero.</p><label class="checkbox"><input name="allow_cloud" type="checkbox" value="true"><span>Autorizo enviar fragmentos de este documento a Gemini. He comprobado que puedo compartir su contenido con Google.</span></label><p class="hint">El nivel gratuito de Gemini puede utilizar el contenido para mejorar productos. Empieza con documentos públicos o ficticios.</p><button class="button primary" id="upload-button" type="submit">Guardar en mi biblioteca ↗</button>
+      </form></div>
+      <div id="version-warning" class="notice hidden"></div><div class="source-header"><h2>Tu biblioteca</h2><button class="button secondary" id="library-demo">Cargar ejemplo</button></div><div id="documents-list"></div>
+    </section>
+    <section id="settings" class="page hidden">
+      <div class="eyebrow">UNA CONEXIÓN, BAJO TU CONTROL</div><h1>Conecta Gemini.</h1><p class="lead">Guarda la clave directamente en tu PC. No necesitas compartirla en un chat.</p>
+      <div class="settings-layout"><div class="query-card"><h2>Tu clave de API</h2><form id="settings-form" novalidate><label>Clave de Google AI Studio<input id="api-key" type="password" autocomplete="off" spellcheck="false" required minlength="20" maxlength="4096" placeholder="Pega aquí tu clave completa, solo en esta aplicación local"></label><p class="hint">Se admiten las claves actuales de Google, incluidas las que empiezan por AQ. Copia su valor completo.</p><label class="checkbox"><input id="free-confirmed" type="checkbox" required><span>He comprobado que el proyecto de esta clave está en el nivel <strong>Free</strong>, sin facturación activa.</span></label><button class="button primary" type="submit" id="save-key">Guardar clave en mi PC ↗</button><p id="settings-feedback" class="notice hidden" role="status" aria-live="polite"></p><p class="hint">Se guarda en .env, excluido de Git. La aplicación no muestra ni devuelve la clave. Guardarla no comprueba su acceso a Google; eso se verifica al consultar con Gemini. Las variables de entorno, si existen, tienen prioridad.</p></form></div>
+      <div class="settings-help"><span class="tag">CONFIGURACIÓN GRATUITA</span><h3>Tres pasos para empezar</h3><ol><li>Abre <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noreferrer">Google AI Studio ↗</a> y crea una clave en tu proyecto.</li><li>Comprueba que aparece <strong>Free</strong>. No actives facturación para este ejercicio.</li><li>Pega la clave en el campo local y guárdala. Después elige «Respuesta con Gemini» al consultar.</li></ol><p id="model-name"></p><p>La aplicación no puede comprobar tu facturación en Google. El límite local no sustituye las cuotas ni garantiza gratuidad si activas un plan de pago.</p><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noreferrer">Consultar precios y condiciones ↗</a></div></div>
+    </section>
+  </main>
+</body></html>
